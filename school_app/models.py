@@ -10,7 +10,7 @@ class student_details(models.Model):
     Gender=models.CharField(max_length=50)
     Date_of_Birth=models.DateField()
     Email=models.EmailField(unique=True)
-    Student_ph_No=models.PositiveIntegerField(unique=True)
+    Student_ph_No=models.PositiveBigIntegerField(unique=True)
     fee=models.FloatField(default=30000)
     Admission_Date=models.DateField(auto_now_add=True)
 
@@ -25,5 +25,5 @@ class teachers_details(models.Model):
     Experience_Years=models.FloatField()
     Joining_Date=models.DateField(auto_now_add=True)
     Salary=models.FloatField(default=40000)
-    Contact_Number=models.PositiveIntegerField(unique=True)
+    Contact_Number=models.PositiveBigIntegerField(unique=True)
     Email=models.EmailField(unique=True)
