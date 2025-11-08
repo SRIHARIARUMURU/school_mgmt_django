@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Students</title>
+  <link rel="stylesheet" href="{% static 'css/school_app_css_files/pages.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="sub">
+      <h2>Student Records</h2>
+
+      <div class="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll No</th>
+              <th>Class</th>
+              <th>Section</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Fee</th>
+              <th>Admission Date</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in stu_table %}
+            <tr>
+              <td>{{ i.Name }}</td>
+              <td>{{ i.Roll_Number }}</td>
+              <td>{{ i.Class }}</td>
+              <td>{{ i.Section }}</td>
+              <td>{{ i.Gender }}</td>
+              <td>{{ i.Date_of_Birth }}</td>
+              <td>{{ i.Email }}</td>
+              <td>{{ i.Student_ph_No }}</td>
+              <td>{{ i.fee }}</td>
+              <td>{{ i.Admission_Date }}</td>
+              <td><a href="{% url 'student_update' i.id %}">Edit</a></td>
+              <td><a href="{% url 'student_delete' i.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="forms">
+        <form method="post">
+          {% csrf_token %}
+          {{ stu_form.as_p }}
+          <button type="submit">Add Student</button>
+        </form>
+      </div>
+
+      <div class="back_buttons">
+        <a href="{% url 'home' %}" class="back_buttons_a">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

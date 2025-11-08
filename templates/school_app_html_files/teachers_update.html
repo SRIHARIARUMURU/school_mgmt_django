@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Teacher Details</title>
+
+  <!-- Linking your existing page CSS -->
+  <link rel="stylesheet" href="{% static 'css/school_app_css_files/pages.css' %}">
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="sub">
+
+      <!-- Page Header -->
+      <h2>✏️ Update Teacher Details</h2>
+
+      <!-- Update Form Section -->
+      <div class="forms">
+        <form method="post">
+          {% csrf_token %}
+          {{ teach_form.as_p }}
+
+          <button type="submit">Update Teacher</button>
+        </form>
+      </div>
+
+      <!-- Optional: Back button -->
+      <div class="back_buttons">
+        <a href="{% url 'teach_table' %}" class="back_buttons_a">← Back to Teachers Table</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Teachers</title>
+  <link rel="stylesheet" href="{% static 'css/school_app_css_files/pages.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="sub">
+      <h2>Teacher Records</h2>
+
+      <div class="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>Emp ID</th>
+              <th>Full Name</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Qualification</th>
+              <th>Subject</th>
+              <th>Experience</th>
+              <th>Joining Date</th>
+              <th>Salary</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in teach_table %}
+            <tr>
+              <td>{{ i.Employee_ID }}</td>
+              <td>{{ i.Full_Name }}</td>
+              <td>{{ i.Gender }}</td>
+              <td>{{ i.Date_of_Birth }}</td>
+              <td>{{ i.Qualification }}</td>
+              <td>{{ i.Subject }}</td>
+              <td>{{ i.Experience_Years }}</td>
+              <td>{{ i.Joining_Date }}</td>
+              <td>{{ i.Salary }}</td>
+              <td>{{ i.Contact_Number }}</td>
+              <td>{{ i.Email }}</td>
+              <td><a href="{% url 'teach_update' i.id %}">Edit</a></td>
+              <td><a href="{% url 'teach_delete' i.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="forms">
+        <form method="post">
+          {% csrf_token %}
+          {{ teach_form.as_p }}
+          <button type="submit">Add Teacher</button>
+        </form>
+      </div>
+
+      <div class="back_buttons">
+        <a href="{% url 'home' %}" class="back_buttons_a">
+          ← Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

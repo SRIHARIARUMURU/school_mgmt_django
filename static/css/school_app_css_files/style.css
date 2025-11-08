@@ -1,0 +1,84 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Full screen main container */
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/school_appa_image_file/Main_Background.png");
+  /* background: linear-gradient(to right, #4facfe, #00f2fe); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inner container */
+.sub {
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.sub h1 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Dashboard container */
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Dashboard cards */
+.card {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  text-decoration: none;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effects */
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .sub {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .sub h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 1rem;
+    font-size: 16px;
+  }
+}
