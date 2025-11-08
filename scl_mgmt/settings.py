@@ -145,13 +145,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_DIR= BASE_DIR/ 'static'
+STATIC_DIR = BASE_DIR / 'static'
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[STATIC_DIR]
-
-# Media files (User uploaded files)
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [STATIC_DIR]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Whitenoise for serving static files efficiently
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -159,6 +156,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Media files (User uploaded files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 
 
 # --------------------------------------------------------------------
