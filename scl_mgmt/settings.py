@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +23,22 @@ STATIC_DIR= BASE_DIR/ 'static'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(g7k2!z0%1mqrk@5u(76r4ie@(l@qj+8g4e&f-hn0mpfj)gs@a'
+# SECRET_KEY = 'django-insecure-(g7k2!z0%1mqrk@5u(76r4ie@(l@qj+8g4e&f-hn0mpfj)gs@a'
+
+
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-(g7k2!z0%1mqrk@5u(76r4ie@(l@qj+8g4e&f-hn0mpfj)gs@a'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+# Debug (False in production)
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
 
 # Application definition
@@ -82,16 +94,24 @@ WSGI_APPLICATION = 'scl_mgmt.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "scl_mgmt",
-        "USER": "root",
-        "PASSWORD": "root",
-        "HOST": "localhost",
-        "PORT": "3306",
-    }
+# DEFAULT_DB = {
+DEFAULT_DB= {
+    "ENGINE": "django.db.backends.mysql",
+    "NAME": "scl_mgmt",
+    "USER": "root",
+    "PASSWORD": "root",
+    "HOST": "localhost",
+    "PORT": "3306",
 }
+# }
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=f"mysql://{DEFAULT_DB['USER']}:{DEFAULT_DB['PASSWORD']}@{DEFAULT_DB['HOST']}:{DEFAULT_DB['PORT']}/{DEFAULT_DB['NAME']}",
+        conn_max_age=600
+    )
+}
+
 
 
 # Password validation
@@ -143,3 +163,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Media files (User uploaded files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Whitenoise for serving static files efficiently
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# --------------------------------------------------------------------
+# DEPLOYMENT (Render-specific)
+# --------------------------------------------------------------------
+# If running on Render, trust the proxy for SSL
+if os.environ.get('RENDER', None):
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
