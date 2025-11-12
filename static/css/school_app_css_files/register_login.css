@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Landing Page */
+.landing-container {
+  text-align: center;
+  color: white;
+}
+
+.landing-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease;
+}
+
+.landing-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.landing-card span {
+  color: #ffe600;
+}
+
+.landing-card p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  text-decoration: none;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.login {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.btn.register {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Auth Pages */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  width: 380px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease;
+}
+
+.auth-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+input:focus {
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+}
+
+.switch-link {
+  margin-top: 1rem;
+}
+
+.switch-link a {
+  color: #ffe600;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card, .landing-card {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .landing-card h1 {
+    font-size: 1.6rem;
+  }
+}

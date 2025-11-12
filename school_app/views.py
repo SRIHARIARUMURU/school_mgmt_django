@@ -1,9 +1,46 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from school_app import forms, models
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+
+def landing_fun(request):
+    return render(request, 'school_app_html_files/home.html')
 
 # Home Page
 def main_fun(request):
     return render(request, 'school_app_html_files/index.html')
+
+# ------------------- REGISTER LOGIN -------------------
+def register_fun(request):
+    msg=''
+    if request.method=='POST':
+        user_name=request.POST.get('username')
+        user_email=request.POST.get('email')
+        pwd=request.POST.get('password')
+        confirm_pwd=request.POST.get('Confirm_password')
+        if pwd!=confirm_pwd:
+            msg='Enter Correct Password'
+        elif User.objects.filter(email=user_email).exists():
+            msg='User already exists'
+        else:
+            user=User.objects.create_user(username=user_name,email=user_email,password=pwd)
+            user.save()
+            return render(request, 'school_app_html_files/login.html', {'msg':msg})
+        
+
+def login_fun(request):
+    msg=''
+    if request.method=='POST':
+        user_name=request.POST.get('username')
+        pwd=request.POST.get('password')
+        user=authenticate(username=user_name, password=pwd )
+        if user is not None:
+            login(request,user)
+            msg='login success'
+            return redirect(request, 'school_app_html_files/index.html')
+        else:
+            msg='invalid credintials'
+    return render(request, 'school_app_html_files/login_page.html' ,{'msg':msg})
 
 
 # ------------------- STUDENTS -------------------
@@ -77,3 +114,7 @@ def teacher_delete_fun(request, id):
     teacher = models.teachers_details.objects.get(id=id)
     teacher.delete()
     return redirect('teach_table')
+
+
+    return render(request, 'school_app_html_files/index.html')
+# 

@@ -22,7 +22,11 @@ from school_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main_fun, name='home'), 
+    path('', views.landing_fun, name='landing_page'),
+    path('register_page/', views.register_fun, name='registration_page'),
+    path('register_page/', views.login_fun, name='login_page'),
+
+    path('home', views.main_fun, name='home'), 
     path('student_data_display/', views.student_form_fun, name='student_table'),
     path('student_updation/<int:id>/', views.student_update_fun, name='student_update'),
     path('student_deletion/<int:id>/', views.student_delete_fun, name='student_delete'),
@@ -31,24 +35,3 @@ urlpatterns = [
     path('teacher_updation/<int:id>/', views.teacher_update_fun, name='teach_update'),
     path('teacher_deletion/<int:id>/', views.teacher_delete_fun, name='teach_delete'),
 ]
-
-
-
-# from django.contrib import admin
-# from django.urls import path
-# from school_app import views
-
-
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('',views.main_fun),
-#     path('student_data_display/',views.student_tab_fun, name='student_table'),
-#     path('student_data_entry/',views.student_form_fun, name='student_form'),
-#     path('student_updation/<int:id>',views.student_update_fun, name='student_update'),
-#     path('student_deletion/<int:id>',views.student_delete_fun, name= 'student_delete'),
-
-#     path('teacher_data_display/',views.teachers_tab_fun,name='teach_table'),
-#     path('teacher_data_entry/',views.teachers_form_fun,name='teach_form'),
-#     path('teacher_updation/<int:id>',views.teacher_update_fun, name='teach_update'),
-#     path('teacher_deletion/<int:id>',views.teacher_delete_fun, name= 'teach_delete'),
-# ]
