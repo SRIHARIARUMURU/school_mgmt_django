@@ -25,7 +25,9 @@ def register_fun(request):
         else:
             user=User.objects.create_user(username=user_name,email=user_email,password=pwd)
             user.save()
-            return render(request, 'school_app_html_files/login.html', {'msg':msg})
+            return redirect('login_page')
+    return render(request,'school_app_html_files/register_page.html', {'msg':msg})
+        
         
 
 def login_fun(request):
@@ -37,7 +39,7 @@ def login_fun(request):
         if user is not None:
             login(request,user)
             msg='login success'
-            return redirect(request, 'school_app_html_files/index.html')
+            return redirect('home')
         else:
             msg='invalid credintials'
     return render(request, 'school_app_html_files/login_page.html' ,{'msg':msg})
