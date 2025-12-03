@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Record</title>
+  <link rel="stylesheet" href="{% static 'css/school_app_css_files/pages.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="sub">
+      <h2>Update Information</h2>
+      <div class="forms">
+        <form method="post">
+          {% csrf_token %}
+          {{ stu_form.as_p }}
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+      <div class="back_buttons">
+        <a href="{% url 'student_table' %}" class="back_buttons_a">← Back to Students Table</a>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

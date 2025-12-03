@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Management</title>
+  <link rel="stylesheet" href="{% static 'css/school_app_css_files/pages.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="sub">
+      <!-- <h1>🏫 School Management System</h1> -->
+      <div class="dashboard">
+        <a href="{% url 'student_table' %}" class="card">Manage Students</a>
+        <a href="{% url 'teach_table' %}" class="card">Manage Teachers</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

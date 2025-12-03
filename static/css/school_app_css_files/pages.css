@@ -1,0 +1,245 @@
+/* ================================
+   🌈 Global Styling for All Pages
+   ================================ */
+
+/* Reset and base font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Full-page layout */
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Centered container */
+.sub {
+  width: 100%;
+  max-width: 1200px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+}
+
+/* Headings */
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------
+   🧭 Dashboard Page Styles
+   ------------------------------ */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.card {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  color: white;
+  text-decoration: none;
+  padding: 1.5rem 2.5rem;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------------
+   🧾 Table Styling
+   ------------------------------ */
+.tables {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.tables table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tables th {
+  background: #0072ff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  /* letter-spacing: 0.5px; */
+}
+
+.tables td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.tables tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tables tr:hover {
+  background-color: #e8f4ff;
+  transition: 0.2s ease;
+}
+
+/* Table Action Links */
+.tables a {
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  color: orange;
+  /* font-weight: bold; */
+  transition: 0.3s ease;
+}
+
+.tables a[href*="update"] {
+  background-color: #4facfe;
+}
+
+.tables a[href*="update"]:hover {
+  background-color: #00aaff;
+}
+
+.tables a[href*="delete"] {
+  background-color: #ff4b5c;
+}
+
+.tables a[href*="delete"]:hover {
+  background-color: #ff2b3b;
+}
+
+/* ------------------------------
+   🧍 Form Styling
+   ------------------------------ */
+.forms form {
+  background: #f8faff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.forms p {
+  margin-bottom: 1rem;
+}
+
+.forms label {
+  display: block;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.forms input,
+.forms select,
+.forms textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.forms input:focus,
+.forms select:focus,
+.forms textarea:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 6px rgba(79, 172, 254, 0.4);
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+}
+
+
+/* Back Button */
+.back_buttons {
+  text-align: center; 
+  margin-top: 1rem;
+}
+
+.back_buttons_a{
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+/* ------------------------------
+   📱 Responsive Design
+   ------------------------------ */
+@media (max-width: 768px) {
+  .sub {
+    padding: 1.5rem;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tables table {
+    font-size: 13px;
+  }
+
+  button[type="submit"] {
+    font-size: 15px;
+  }
+}
