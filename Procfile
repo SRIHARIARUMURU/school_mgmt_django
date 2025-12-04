@@ -1,0 +1,1 @@
+web:scl_mgmt.wsgi
