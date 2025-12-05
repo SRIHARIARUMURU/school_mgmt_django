@@ -2,7 +2,7 @@ from django import forms
 from school_app import models
 
 
-class StudentForm(forms.ModelForm):
+class student_form(forms.ModelForm):
     class Meta:
         model = models.student_details
         fields = "__all__"
@@ -21,7 +21,7 @@ class StudentForm(forms.ModelForm):
         }
 
 
-class TeacherForm(forms.ModelForm):
+class teachers_form(forms.ModelForm):
     class Meta:
         model = models.teachers_details
         fields = "__all__"
