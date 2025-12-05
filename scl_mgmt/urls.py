@@ -23,8 +23,8 @@ from school_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.landing_fun, name='landing_page'),
-    path('register_page/', views.register_fun, name='registration_page'),
-    path('login_page/', views.login_fun, name='login_page'),
+    path('register__page/', views.register_fun, name='registration_page'),
+    path('login__page/', views.login_fun, name='login_page'),
 
     path('home', views.main_fun, name='home'), 
     path('student_data_display/', views.student_form_fun, name='student_table'),
